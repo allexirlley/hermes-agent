@@ -1626,6 +1626,8 @@ def main() -> int:
             )
             if rc != 0:
                 _print_inline_failure(fpath, output, repo_root, pytest_passthrough)
+            elif subproc_wall > 40:
+                print(f"DIAG slow file {fpath} {subproc_wall:.1f}s\n{output[-4000:]}", flush=True)
 
     if str(repo_root) not in sys.path:
         sys.path.insert(0, str(repo_root))

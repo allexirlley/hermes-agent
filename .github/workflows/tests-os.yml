@@ -196,7 +196,7 @@ jobs:
           scripts/run_tests.sh --files "$FILES" -- \
             ${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"} \
             -m "platforms and not integration" \
-            -v --tb=short
+            -v --tb=short --durations=15 --durations-min=2
         env:
           # These files spawn nested PowerShell trees. CPU-count parallelism
           # starves cold child startup before the fixture's idle deadline.
